@@ -17,6 +17,14 @@
 </head>
 <body>
 
+  <!-- ── Page loader ── -->
+  <div class="page-loader" id="pageLoader">
+    <svg class="page-loader__logo" viewBox="0 0 100 122" fill="none">
+      <circle class="loader-circle" cx="44" cy="55" r="37" stroke="#4a5d73" stroke-width="7.5" stroke-dasharray="233" stroke-dashoffset="233"/>
+      <line class="loader-line" x1="81" y1="2" x2="81" y2="120" stroke="#4a5d73" stroke-width="7.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
   <!-- ── Custom cursor ── -->
   <div class="cursor-dot"  id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -38,12 +46,13 @@
 
     <!-- ── Hero ── -->
     <section class="hero">
+      <canvas id="heroCanvas" class="hero__canvas" aria-hidden="true"></canvas>
       <div class="hero__glow"></div>
       <div class="container hero__inner">
-        <span class="eyebrow reveal">The modern way to get online</span>
-        <h1 class="hero__h1 reveal">Your website,<br>live in <em>72 hours.</em></h1>
-        <p class="hero__sub reveal">Beautiful, professional websites for local businesses — built with less than 30 minutes of your time, for just $199 a month. Everything included.</p>
-        <div class="hero__ctas reveal">
+        <span class="eyebrow hero-eyebrow">The modern way to get online</span>
+        <h1 class="hero__h1">Your website,<br>live in <em>72 hours.</em></h1>
+        <p class="hero__sub">Beautiful, professional websites for local businesses — built with less than 30 minutes of your time, for just $199 a month. Everything included.</p>
+        <div class="hero__ctas">
           <a href="#get-started" class="btn btn--primary btn--lg">Get your website</a>
           <a href="#how-it-works" class="btn btn--ghost btn--lg">See how it works</a>
         </div>
@@ -57,23 +66,23 @@
     <section class="stats-strip">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat reveal">
-            <div class="stat__num">30<span class="stat__unit">min</span></div>
+          <div class="stat">
+            <div class="stat__num"><span class="count" data-count="30">30</span><span class="stat__unit">min</span></div>
             <div class="stat__label">of your time — total</div>
           </div>
           <div class="stat-divider"></div>
-          <div class="stat reveal">
-            <div class="stat__num">72<span class="stat__unit">hrs</span></div>
+          <div class="stat">
+            <div class="stat__num"><span class="count" data-count="72">72</span><span class="stat__unit">hrs</span></div>
             <div class="stat__label">from sign-up to live</div>
           </div>
           <div class="stat-divider"></div>
-          <div class="stat reveal">
-            <div class="stat__num">$199<span class="stat__unit">/mo</span></div>
+          <div class="stat">
+            <div class="stat__num">$<span class="count" data-count="199">199</span><span class="stat__unit">/mo</span></div>
             <div class="stat__label">all-inclusive, no surprises</div>
           </div>
           <div class="stat-divider"></div>
-          <div class="stat reveal">
-            <div class="stat__num">500<span class="stat__unit">+</span></div>
+          <div class="stat">
+            <div class="stat__num"><span class="count" data-count="500">500</span><span class="stat__unit">+</span></div>
             <div class="stat__label">local businesses served</div>
           </div>
         </div>
@@ -85,30 +94,74 @@
       <div class="container">
         <div class="section__header">
           <span class="eyebrow reveal">The process</span>
-          <h2 class="section__h2 reveal">Up and running<br>before you know it.</h2>
+          <h2 class="section__h2 split-heading" data-split="lines">Up and running<br>before you know it.</h2>
           <p class="section__body reveal">We've removed every bit of friction from getting your business online. No long meetings, no confusing forms, no waiting months.</p>
         </div>
-        <div class="steps">
-          <div class="step reveal">
-            <div class="step__num">01</div>
-            <div class="step__content">
-              <h3 class="step__title">Tell us about your business</h3>
-              <p class="step__desc">Answer a few quick questions and join a 20-minute onboarding call. That's it. Less than 30 minutes of your time, total — and we take it from there.</p>
+        <div class="steps-layout">
+          <div class="steps">
+            <div class="step reveal">
+              <div class="step__num">01</div>
+              <div class="step__content">
+                <h3 class="step__title">Tell us about your business</h3>
+                <p class="step__desc">Answer a few quick questions and join a 20-minute onboarding call. That's it. Less than 30 minutes of your time, total — and we take it from there.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step__num">02</div>
+              <div class="step__content">
+                <h3 class="step__title">We build everything</h3>
+                <p class="step__desc">Our team designs your site, writes the copy, sets up your domain, configures hosting, and handles every technical detail. You don't lift a finger.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step__num">03</div>
+              <div class="step__content">
+                <h3 class="step__title">Review and go live</h3>
+                <p class="step__desc">Within 72 hours, you'll receive a preview link. Say the word and your site goes live — indexed, optimised, and ready to bring in new customers.</p>
+              </div>
             </div>
           </div>
-          <div class="step reveal">
-            <div class="step__num">02</div>
-            <div class="step__content">
-              <h3 class="step__title">We build everything</h3>
-              <p class="step__desc">Our team designs your site, writes the copy, sets up your domain, configures hosting, and handles every technical detail. You don't lift a finger.</p>
+          <div class="steps-visual">
+            <div class="steps-img-wrap parallax-wrap">
+              <img class="parallax-img" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&q=90&auto=format&fit=crop" alt="Modern workspace" loading="lazy">
+            </div>
+            <div class="steps-img-badge">
+              <div class="steps-img-badge__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="steps-img-badge__val">72hrs</div>
+                <div class="steps-img-badge__label">Average launch time</div>
+              </div>
             </div>
           </div>
-          <div class="step reveal">
-            <div class="step__num">03</div>
-            <div class="step__content">
-              <h3 class="step__title">Review and go live</h3>
-              <p class="step__desc">Within 72 hours, you'll receive a preview link. Say the word and your site goes live — indexed, optimised, and ready to bring in new customers.</p>
-            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Showcase (cinematic) ── -->
+    <section class="showcase" id="showcase">
+      <div class="parallax-wrap showcase__bg-wrap">
+        <img class="parallax-img showcase__bg-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80&auto=format&fit=crop" alt="" loading="lazy" aria-hidden="true">
+      </div>
+      <div class="showcase__overlay"></div>
+      <div class="container showcase__content">
+        <span class="eyebrow showcase__eyebrow">The Quanimous standard</span>
+        <h2 class="showcase__h2" data-split="lines">Websites that<br>actually win<br>customers.</h2>
+        <div class="showcase__stats">
+          <div class="showcase__stat">
+            <div class="showcase__stat-num"><span class="count" data-count="500">500</span><span>+</span></div>
+            <div class="showcase__stat-label">Businesses launched</div>
+          </div>
+          <div class="showcase__stat-divider"></div>
+          <div class="showcase__stat">
+            <div class="showcase__stat-num"><span class="count" data-count="72">72</span><span class="showcase__stat-unit">hrs</span></div>
+            <div class="showcase__stat-label">Average time to launch</div>
+          </div>
+          <div class="showcase__stat-divider"></div>
+          <div class="showcase__stat">
+            <div class="showcase__stat-num"><span class="count" data-count="98">98</span><span>%</span></div>
+            <div class="showcase__stat-label">Client satisfaction</div>
           </div>
         </div>
       </div>
@@ -119,11 +172,11 @@
       <div class="container">
         <div class="section__header">
           <span class="eyebrow reveal">What's included</span>
-          <h2 class="section__h2 reveal">Everything you need.<br>Nothing you don't.</h2>
+          <h2 class="section__h2 split-heading" data-split="lines">Everything you need.<br>Nothing you don't.</h2>
         </div>
         <div class="features-grid">
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
             </div>
@@ -131,7 +184,7 @@
             <p class="feature-card__desc">A unique design built around your brand — not a generic template anyone else is using.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             </div>
@@ -139,7 +192,7 @@
             <p class="feature-card__desc">Your site looks and works beautifully on every device — phone, tablet, or desktop.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
@@ -147,15 +200,15 @@
             <p class="feature-card__desc">Built with local search in mind so customers in your area can find you on Google.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0118 9h-1.26A8 8 0 103 16.3"/></svg>
             </div>
             <h3 class="feature-card__title">Hosting Included</h3>
             <p class="feature-card__desc">Fast, reliable hosting with 99.9% uptime — included in your monthly fee. No extra bills.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
             </div>
@@ -163,7 +216,7 @@
             <p class="feature-card__desc">Need to change your hours, add a service, update a photo? Just ask. We handle it.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
@@ -171,7 +224,7 @@
             <p class="feature-card__desc">Your site is secured with SSL encryption — the padlock that tells customers you're trustworthy.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
             </div>
@@ -179,7 +232,7 @@
             <p class="feature-card__desc">Real people, real answers. Reach us anytime by email or chat — no bots, no queues.</p>
           </div>
 
-          <div class="feature-card reveal">
+          <div class="feature-card">
             <div class="feature-card__icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
@@ -195,12 +248,10 @@
     <section class="section ticker-section" id="testimonials">
       <div class="section__header container">
         <span class="eyebrow reveal">Real results</span>
-        <h2 class="section__h2 reveal">Local businesses,<br>thriving online.</h2>
+        <h2 class="section__h2 split-heading" data-split="lines">Local businesses,<br>thriving online.</h2>
       </div>
       <div class="ticker-wrap">
         <div class="ticker-track">
-
-          <!-- Original set -->
           <div class="testimonial">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">I'd been meaning to get a website for three years. Quanimous had us live in under 3 days and I already have new catering orders from it. Incredible.</p>
@@ -212,7 +263,6 @@
               </div>
             </div>
           </div>
-
           <div class="testimonial">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">One short call, a quick review, and we were live. My wife couldn't believe it. We've been getting calls from the website every single week now.</p>
@@ -224,7 +274,6 @@
               </div>
             </div>
           </div>
-
           <div class="testimonial">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">For the price, the quality is unreal. My website looks better than shops ten times my size. I've had three competitors ask me who built it.</p>
@@ -236,7 +285,6 @@
               </div>
             </div>
           </div>
-
           <div class="testimonial">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">I thought getting a website would be complicated and expensive. Quanimous made it completely painless and it looks absolutely stunning.</p>
@@ -248,7 +296,6 @@
               </div>
             </div>
           </div>
-
           <div class="testimonial">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">Within a week of going live, we had two new bookings purely from people finding us on Google. The ROI on $199 a month is a no-brainer.</p>
@@ -260,68 +307,32 @@
               </div>
             </div>
           </div>
-
           <!-- Duplicate set for seamless loop -->
           <div class="testimonial" aria-hidden="true">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">I'd been meaning to get a website for three years. Quanimous had us live in under 3 days and I already have new catering orders from it. Incredible.</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">MS</div>
-              <div>
-                <div class="testimonial__name">Maria Santos</div>
-                <div class="testimonial__biz">Santos Family Bakery, Austin TX</div>
-              </div>
-            </div>
+            <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div><div class="testimonial__name">Maria Santos</div><div class="testimonial__biz">Santos Family Bakery, Austin TX</div></div></div>
           </div>
-
           <div class="testimonial" aria-hidden="true">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">One short call, a quick review, and we were live. My wife couldn't believe it. We've been getting calls from the website every single week now.</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">DW</div>
-              <div>
-                <div class="testimonial__name">Derek Walsh</div>
-                <div class="testimonial__biz">Walsh Plumbing &amp; Heating, Chicago IL</div>
-              </div>
-            </div>
+            <div class="testimonial__author"><div class="testimonial__avatar">DW</div><div><div class="testimonial__name">Derek Walsh</div><div class="testimonial__biz">Walsh Plumbing &amp; Heating, Chicago IL</div></div></div>
           </div>
-
           <div class="testimonial" aria-hidden="true">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">For the price, the quality is unreal. My website looks better than shops ten times my size. I've had three competitors ask me who built it.</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">PM</div>
-              <div>
-                <div class="testimonial__name">Priya Mehta</div>
-                <div class="testimonial__biz">Bloom &amp; Bloom Florist, Seattle WA</div>
-              </div>
-            </div>
+            <div class="testimonial__author"><div class="testimonial__avatar">PM</div><div><div class="testimonial__name">Priya Mehta</div><div class="testimonial__biz">Bloom &amp; Bloom Florist, Seattle WA</div></div></div>
           </div>
-
           <div class="testimonial" aria-hidden="true">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">I thought getting a website would be complicated and expensive. Quanimous made it completely painless and it looks absolutely stunning.</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">JL</div>
-              <div>
-                <div class="testimonial__name">James Liu</div>
-                <div class="testimonial__biz">Liu's Auto Detailing, Portland OR</div>
-              </div>
-            </div>
+            <div class="testimonial__author"><div class="testimonial__avatar">JL</div><div><div class="testimonial__name">James Liu</div><div class="testimonial__biz">Liu's Auto Detailing, Portland OR</div></div></div>
           </div>
-
           <div class="testimonial" aria-hidden="true">
             <div class="testimonial__quote-mark">"</div>
             <p class="testimonial__quote">Within a week of going live, we had two new bookings purely from people finding us on Google. The ROI on $199 a month is a no-brainer.</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar">SR</div>
-              <div>
-                <div class="testimonial__name">Sofia Reyes</div>
-                <div class="testimonial__biz">Reyes &amp; Co. Hair Studio, Miami FL</div>
-              </div>
-            </div>
+            <div class="testimonial__author"><div class="testimonial__avatar">SR</div><div><div class="testimonial__name">Sofia Reyes</div><div class="testimonial__biz">Reyes &amp; Co. Hair Studio, Miami FL</div></div></div>
           </div>
-
         </div>
       </div>
     </section>
@@ -331,7 +342,7 @@
       <div class="container">
         <div class="section__header">
           <span class="eyebrow reveal">Simple pricing</span>
-          <h2 class="section__h2 reveal">One plan.<br>Everything included.</h2>
+          <h2 class="section__h2 split-heading" data-split="lines">One plan.<br>Everything included.</h2>
           <p class="section__body reveal">No setup fees. No hidden costs. No contracts. Just one clear monthly price for everything you need to be online and growing.</p>
         </div>
         <div class="pricing-wrap reveal">
@@ -344,46 +355,16 @@
               <p class="pricing-card__tagline">Everything to get you online and keep you there.</p>
             </div>
             <ul class="pricing-list">
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Custom designed website
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Live within 72 hours
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Hosting &amp; domain included
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Mobile responsive
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Local SEO optimised
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                SSL security certificate
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Unlimited content updates
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Ongoing support
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                No setup fee
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Cancel anytime
-              </li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom designed website</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live within 72 hours</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Hosting &amp; domain included</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mobile responsive</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Local SEO optimised</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SSL security certificate</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited content updates</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ongoing support</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No setup fee</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cancel anytime</li>
             </ul>
             <a href="#get-started" class="btn btn--primary btn--full">Get started today</a>
             <p class="pricing-card__note">No long-term contracts &nbsp;·&nbsp; Cancel anytime</p>
@@ -397,60 +378,29 @@
       <div class="container container--narrow">
         <div class="section__header">
           <span class="eyebrow reveal">FAQ</span>
-          <h2 class="section__h2 reveal">Common questions.</h2>
+          <h2 class="section__h2 split-heading" data-split="lines">Common questions.</h2>
         </div>
         <div class="faq-list">
-
           <div class="faq-item reveal">
-            <button class="faq-item__q">
-              How much of my time does this actually take?
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-item__a">
-              <p>Less than 30 minutes, start to finish. You'll fill in a brief intake form (about 10 minutes) and join a 20-minute onboarding call with us. After that, everything is on us until you review your site preview.</p>
-            </div>
+            <button class="faq-item__q">How much of my time does this actually take?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-item__a"><p>Less than 30 minutes, start to finish. You'll fill in a brief intake form (about 10 minutes) and join a 20-minute onboarding call with us. After that, everything is on us until you review your site preview.</p></div>
           </div>
-
           <div class="faq-item reveal">
-            <button class="faq-item__q">
-              What if I want changes after the site is live?
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-item__a">
-              <p>Unlimited updates are included in your monthly fee. Just send us a message and our team will handle any changes — new hours, new services, new photos, new anything.</p>
-            </div>
+            <button class="faq-item__q">What if I want changes after the site is live?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-item__a"><p>Unlimited updates are included in your monthly fee. Just send us a message and our team will handle any changes — new hours, new services, new photos, new anything.</p></div>
           </div>
-
           <div class="faq-item reveal">
-            <button class="faq-item__q">
-              Do I need to buy a domain separately?
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-item__a">
-              <p>If you already have a domain, great — we'll connect it. If not, domain registration is included in your first year. Hosting is always included in the monthly fee.</p>
-            </div>
+            <button class="faq-item__q">Do I need to buy a domain separately?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-item__a"><p>If you already have a domain, great — we'll connect it. If not, domain registration is included in your first year. Hosting is always included in the monthly fee.</p></div>
           </div>
-
           <div class="faq-item reveal">
-            <button class="faq-item__q">
-              Is there a contract or minimum commitment?
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-item__a">
-              <p>No contracts, no minimum commitment. Your subscription is month-to-month and you can cancel at any time. We believe in earning your business every month.</p>
-            </div>
+            <button class="faq-item__q">Is there a contract or minimum commitment?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-item__a"><p>No contracts, no minimum commitment. Your subscription is month-to-month and you can cancel at any time. We believe in earning your business every month.</p></div>
           </div>
-
           <div class="faq-item reveal">
-            <button class="faq-item__q">
-              What kinds of businesses do you work with?
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-item__a">
-              <p>We specialise in local service businesses — trades, hospitality, retail, health &amp; beauty, professional services, and more. If you serve customers in your local area, we can help you get found online.</p>
-            </div>
+            <button class="faq-item__q">What kinds of businesses do you work with?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-item__a"><p>We specialise in local service businesses — trades, hospitality, retail, health &amp; beauty, professional services, and more. If you serve customers in your local area, we can help you get found online.</p></div>
           </div>
-
         </div>
       </div>
     </section>
@@ -458,7 +408,7 @@
     <!-- ── CTA ── -->
     <section class="cta-section" id="get-started">
       <div class="container">
-        <div class="cta-inner reveal">
+        <div class="cta-inner">
           <h2 class="cta__h2">Ready to go live?</h2>
           <p class="cta__sub">Join hundreds of local businesses winning online with Quanimous. Your site could be live within 72 hours from right now.</p>
           <a href="mailto:hello@quanimous.com" class="btn btn--white btn--lg">Get your website — $199/mo</a>
@@ -472,7 +422,7 @@
       <div class="container container--narrow">
         <div class="section__header">
           <span class="eyebrow reveal">Get in touch</span>
-          <h2 class="section__h2 reveal">Let's get you online.</h2>
+          <h2 class="section__h2 split-heading" data-split="lines">Let's get you online.</h2>
           <p class="section__body reveal">Tell us a little about your business and we'll be in touch within one business day.</p>
         </div>
         <form class="contact-form reveal" id="contactForm" novalidate>
@@ -532,6 +482,9 @@
     </div>
   </footer>
 
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
