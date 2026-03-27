@@ -226,7 +226,18 @@ ul     { list-style: none; }
 
 .logo--light { color: var(--white); }
 
-.nav__cta { margin-left: auto; }
+.nav__phone {
+  margin-left: auto;
+  margin-right: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+  transition: opacity var(--transition);
+}
+.nav__phone:hover { opacity: 0.7; }
+
+.nav__cta {}
 
 
 /* ═══════════════════════════════════════════════
@@ -867,6 +878,25 @@ ul     { list-style: none; }
 .form-notice--success { color: #2d7a4f; font-weight: 500; }
 .form-notice--error   { color: #b94040; font-weight: 500; }
 
+.contact-details {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+.contact-detail:hover { color: var(--accent); }
+.contact-detail svg   { flex-shrink: 0; }
+
 /* ═══════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════ */
@@ -999,7 +1029,8 @@ ul     { list-style: none; }
 ═══════════════════════════════════════════════ */
 @media (max-width: 540px) {
   /* Nav */
-  .nav__cta { padding: 9px 18px; font-size: 13px; }
+  .nav__phone { display: none; }
+  .nav__cta { padding: 9px 18px; font-size: 13px; margin-left: auto; }
 
   /* Hero */
   .hero { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 60px; }
