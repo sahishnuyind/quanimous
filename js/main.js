@@ -1,5 +1,8 @@
 'use strict';
 
+/* ── Lucide icons ── */
+lucide.createIcons();
+
 /* ── GSAP ── */
 gsap.registerPlugin(ScrollTrigger);
 
