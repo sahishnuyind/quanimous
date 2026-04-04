@@ -32,14 +32,42 @@
   <!-- ── Navigation ── -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
+
       <a href="#" class="logo">
         <svg class="logo__mark" viewBox="0 0 100 122" fill="none" aria-hidden="true">
           <circle cx="44" cy="55" r="37" stroke="currentColor" stroke-width="7.5"/>
           <line x1="81" y1="2" x2="81" y2="120" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
         </svg>
+        <span class="logo__name">Quanimous</span>
       </a>
-      <a href="tel:+61478618042" class="nav__phone">+61 478 618 042</a>
-      <a href="#contact" class="btn btn--primary btn--sm nav__cta">Get started</a>
+
+      <div class="nav__links">
+        <a href="#how-it-works" class="nav__link">How it works</a>
+        <a href="#our-work"     class="nav__link">Our work</a>
+        <a href="#pricing"      class="nav__link">Pricing</a>
+        <a href="#faq"          class="nav__link">FAQ</a>
+      </div>
+
+      <div class="nav__right">
+        <a href="tel:+61478618042" class="nav__phone">+61 478 618 042</a>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta">Get started</a>
+      </div>
+
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <div class="nav__drawer" id="navDrawer" aria-hidden="true">
+      <a href="#how-it-works" class="nav__drawer-link">How it works</a>
+      <a href="#our-work"     class="nav__drawer-link">Our work</a>
+      <a href="#pricing"      class="nav__drawer-link">Pricing</a>
+      <a href="#faq"          class="nav__drawer-link">FAQ</a>
+      <div class="nav__drawer-footer">
+        <a href="tel:+61478618042" class="nav__drawer-phone">+61 478 618 042</a>
+        <a href="#contact" class="btn btn--primary btn--sm">Get started</a>
+      </div>
     </div>
   </nav>
 
