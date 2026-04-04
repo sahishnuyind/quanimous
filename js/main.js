@@ -405,32 +405,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 /* ═══════════════════════════════════════════════
-   NAV  —  frosted glass on scroll + mobile drawer
+   NAV  —  frosted glass on scroll
 ═══════════════════════════════════════════════ */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
-
-(function initNavBurger() {
-  const burger = document.getElementById('navBurger');
-  if (!burger) return;
-
-  burger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded', isOpen);
-    document.getElementById('navDrawer').setAttribute('aria-hidden', !isOpen);
-  });
-
-  // Close drawer when any drawer link is clicked
-  document.querySelectorAll('.nav__drawer-link, .nav__drawer .btn').forEach(el => {
-    el.addEventListener('click', () => {
-      nav.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.getElementById('navDrawer').setAttribute('aria-hidden', 'true');
-    });
-  });
-})();
 
 
 /* ═══════════════════════════════════════════════
