@@ -951,11 +951,14 @@ ul     { list-style: none; }
 }
 
 .work-card {
+  display: block;
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
   transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+  color: inherit;
 }
 
 .work-card:hover {
