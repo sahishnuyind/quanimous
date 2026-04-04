@@ -201,6 +201,16 @@ gsap.registerPlugin(ScrollTrigger);
     }
   );
 
+  /* Work cards — stagger grid */
+  gsap.fromTo('.work-card',
+    { y: 48, opacity: 0 },
+    {
+      y: 0, opacity: 1,
+      duration: 0.85, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.work-grid', start: 'top 82%' },
+    }
+  );
+
   /* Feature cards — stagger grid */
   gsap.fromTo('.feature-card',
     { y: 40, opacity: 0 },
